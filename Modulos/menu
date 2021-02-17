@@ -234,7 +234,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;32mOS/HORA/DATA       MEMÓRIA RAM      PROCESSADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mHora: \033[1;37m$_hora     \033[1;31mEm uso: \033[1;37m$_usor \033[1;31mEm uso: \033[1;37m$_usop\033[0m"
-echo -e "\033[1;31mData: \033[1;37m$_data   \033[1;31mCache:\033[1;37m$report_       \033[1;31mMhz:\033[1;37m$CPUfreq\033[0m"
+echo -e "\033[1;31mData: \033[1;37m$_data   \033[1;31mCache:\033[1;37m$report_      \033[1;31mMhz:\033[1;37m$CPUfreq\033[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 mine_port
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -356,7 +356,7 @@ echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━�
 echo -e "\033[1;32mOS/HORA/DATA       MEMÓRIA RAM      PROCESSADOR "
 echo -e "\033[1;31mOS: \033[1;37m$_system \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mHora: \033[1;37m$_hora     \033[1;31mEm uso: \033[1;37m$_usor \033[1;31mEm uso: \033[1;37m$_usop\033[0m"
-echo -e "\033[1;31mData: \033[1;37m$_data   \033[1;31mCache:\033[1;37m$report_       \033[1;31mMhz:\033[1;37m$CPUfreq\033[0m"
+echo -e "\033[1;31mData: \033[1;37m$_data   \033[1;31mCache:\033[1;37m$report_      \033[1;31mMhz:\033[1;37m$CPUfreq\033[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 mine_port
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
