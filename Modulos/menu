@@ -94,6 +94,9 @@ function limit1 () {
    sleep 3
    menu
 }
+webserv () {
+    wget https://raw.githubusercontent.com/Sucurinet/JR/master/Modulos/addwebserv > /dev/null 2>&1; chmod +x addwebserv; ./addwebserv
+}
 function limit2 () {
    clear
    echo -e "\033[1;32mPARANDO O LIMITER... \033[0m"
@@ -299,7 +302,7 @@ case "$x" in
    delscript
    ;;
    30)
-   addwebserv
+   webserv
    ;;
    31)
    exit
