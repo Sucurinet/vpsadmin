@@ -3,7 +3,7 @@
 # UPDATE 17/01/2021
 
 
-![logo](https://github.com/Sucurinet/JR/blob/master/Imagenes/SHELLVPSADMIN.jpg)
+![logo](https://github.com/Sucurinet/JR/blob/master/Imagenes/vpsadmin01.jpg)
 
 
 ```
