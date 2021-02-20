@@ -22,7 +22,7 @@ apt-get update -y > /dev/null 2>&1
 apt-get install cron curl unzip -y > /dev/null 2>&1
 echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
 apt-get install apache2 -y > /dev/null 2>&1
-apt-get install php5 libapache2-mod-php5 php5-mcrypt -y > /dev/null 2>&1
+apt-get install php7.0 libapache2-mod-php7.0 php7.0-cli php7.0-common php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip -y > /dev/null 2>&1
 service apache2 restart > /dev/null 2>&1
 echo -e "\n\033[1;36mINSTALANDO O MySQL \033[1;33mAGUARDE...\033[0m"
 echo "debconf mysql-server/root_password password $senha" | debconf-set-selections
@@ -46,58 +46,20 @@ if [ "$(php -m |grep ssh2)" = "ssh2" ]; then
 else
   clear
   echo -e "\033[1;31m ERRO CRITICO\033[0m"
-  rm $HOME/install.sh
+  rm $HOME/addwebserv.sh
   exit
 fi
 apt-get install php5-curl > /dev/null 2>&1
 service apache2 restart > /dev/null 2>&1
 clear
 echo ""
-echo -e "\033[1;31m ATENCAO \033[1;33m!!!"
-echo ""
-echo -ne "\033[1;32m INFORME A MESMA SENHA\033[1;37m: "; read senha
-sleep 1
-mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
-clear
-echo -e "\033[1;36m FINALIZANDO INSTALACAO\033[0m"
-echo ""
-echo -e "\033[1;33m AGUARDE..."
-echo ""
 
-cd /var/www/html
-wget https://www.dropbox.com/s/sjzgmbjkrzxa5wc/v20.zip > /dev/null 2>&1
-unzip v20.zip > /dev/null 2>&1
-rm -rf v20.zip index.html > /dev/null 2>&1
-service apache2 restart > /dev/null 2>&1
-sleep 1
-if [[ -e "/var/www/html/pages/system/pass.php" ]]; then
-sed -i "s;1010;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
-fi
-sleep 1
-cd
-wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Install/Panel_Web/panel_v20/banco.sql > /dev/null 2>&1
-sleep 1
-if [[ -e "$HOME/banco.sql" ]]; then
-    mysql -h localhost -u root -p$senha --default_character_set utf8 sshplus < banco.sql
-    rm /root/banco.sql
-else
-    clear
-    echo -e "\033[1;31m ERRO AO IMPORTAR BANCO DE DADOS\033[0m"
-    sleep 2
     rm /root/install.sh > /dev/null 2>&1
     exit
-fi
+
 service apache2 restart > /dev/null 2>&1
 clear
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.ssh.php ' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.sms.php' >> /etc/crontab
-echo '* * * * * root /usr/bin/php /var/www/html/pages/system/cron.online.ssh.php' >> /etc/crontab
-echo '10 * * * * root /usr/bin/php /var/www/html/pages/system/cron.servidor.php' >> /etc/crontab
-echo '*/30 * * * * root /usr/bin/php /var/www/html/pages/system/cron.limpeza.php' >> /etc/crontab
-echo '*/1 * * * * root /bin/html.sh' >> /etc/crontab
-cd /bin
-wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Install/Panel_Web/panel_v20/html.sh > /dev/null 2>&1 && chmod 777 html.sh && sed -i -e 's/\r$//' html.sh && ./html.sh
+
 /etc/init.d/cron reload > /dev/null 2>&1
 /etc/init.d/cron restart > /dev/null 2>&1
 cd
@@ -106,15 +68,14 @@ chmod 777 /var/www/html/admin/pages/download
 chmod 777 /var/www/html/admin/pages/faturas/comprovantes
 service apache2 restart > /dev/null 2>&1
 clear
-echo -e "\033[1;32m PAINEL-SSH INSTALADO COM SUCESSO!"
+echo -e "\033[1;32m SERVIDOR WEB INSTALADO COM SUCESSO!"
 echo ""
-echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
-echo -e "\033[1;36m USUARIO:\033[1;37m admin\033[0m"
-echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
+echo -e "\033[1;36m ALTERE PARA PORTA 81 CASO ESTEJA USANDO A 80 \033[1;37m "
+
 echo ""
-echo -e "\033[1;33m Altere a senha quando logar no painel>> Configuracoes>> Senha Antiga: admin >> Nova Senha: \033[0m"
+
 cat /dev/null > ~/.bash_history && history -c
-rm /root/install
+rm /root/addwebserv
   ;;
   n|N ) tput setaf 1 ; tput bold ;echo "INSTALAÇAO ENCERRADA...!!"; tput sgr0; ;;
     * ) tput setaf 1 ; tput bold ; echo "Digite apenas ou S ou N";tput sgr0; ;;
