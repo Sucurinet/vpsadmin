@@ -54,7 +54,7 @@ service apache2 restart > /dev/null 2>&1
 clear
 echo ""
 
-    rm /root/install.sh > /dev/null 2>&1
+    rm /root/addwebserv.sh > /dev/null 2>&1
     exit
 
 service apache2 restart > /dev/null 2>&1
