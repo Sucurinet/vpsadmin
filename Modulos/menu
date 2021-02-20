@@ -299,7 +299,7 @@ case "$x" in
    delscript
    ;;
    30)
-   exit
+   addwebserv
    ;;
    31)
    exit
