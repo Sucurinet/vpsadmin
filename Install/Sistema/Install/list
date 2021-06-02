@@ -6,7 +6,7 @@
 #	CONTATO TELEGRAM:	http://t.me/crazy_vpn
 #	CANAL TELEGRAM:	http://t.me/sshplus
 #====================================================
-_lvk=$(wget -qO- https://raw.githubusercontent.com/Sucurinet/vpsadmin/master/Install/versao?token=AS24BH5JMUXMO2KS4O6JH2TAW7EL4)
+_lvk=$(wget -qO- https://raw.githubusercontent.com/Sucurinet/vpsadmin/master/Install/versao)
 IP=$(wget -qO- ipv4.icanhazip.com)
 IP2=$(wget -qO- http://whatismyip.akamai.com/)
 [[ "$IP" != "$IP2" ]] && ipdovps="$IP2" || ipdovps="$IP"
